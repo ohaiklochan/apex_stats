@@ -8,10 +8,7 @@ class ApexStats::CLI
   
   def list_legends
     puts "Welcome to Apex Stats!"
-    puts <<-DOC.gsub /^\s*/, ''
-      1. Bangalore
-      2. Bloodhound
-    DOC
+    @stats = ApexStats::Stats.today
   end
   
   def menu
