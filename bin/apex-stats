@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+
+require './lib/apex_stats'
+
+
+ApexStats::CLI.new.call
+
+
