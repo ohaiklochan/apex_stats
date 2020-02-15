@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["'Chloe Foronda'"]
   spec.email         = ["'caforonda103@yahoo.com'"]
 
-  spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{This gem finds the stats within all of the top characters or 'legends' in the video game Apex Legends.}
+  spec.description   = %q{This gem finds the stats within all of the top characters or 'legends' in the video game Apex Legends. It is organized by usage, kills per match, damage per match, win rate, and headshots per kill. This gem also allows the user to read up on the legends by typing in their name.}
+  spec.homepage      = "https://github.com/ohaiklochan/apex_stats"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
