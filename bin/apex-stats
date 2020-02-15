@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-
+require 'apex_stats'
 require './lib/apex_stats'
 
 
