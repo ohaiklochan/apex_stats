@@ -1,9 +1,6 @@
-#!/usr/bin/env bash
+#!/usr/bin/env ruby
 
-require 'apex_stats'
 require './lib/apex_stats'
-
-
 ApexStats::CLI.new.call
 
 
