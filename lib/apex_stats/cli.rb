@@ -36,6 +36,21 @@ class ApexStats::CLI
     end
   end
   
+  def display_wraith
+    x = ApexStats::Legend.wraith
+    show_stats(x)
+  end
+  
+  def display_wraith
+    x = ApexStats::Legend.wraith
+    show_stats(x)
+  end
+  
+  def display_wraith
+    x = ApexStats::Legend.wraith
+    show_stats(x)
+  end
+  
   def goodbye
     puts "See ya later!"
   end
