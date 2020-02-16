@@ -20,7 +20,9 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Option :1 gem install overwatch_stats require 'apex_stats' in irb type 'ApexStats::CLI.new.start'
+
+Option :2 Clone repository (https://github.com/ohaiklochan/apex_stats.git) & run bin/overwatch_stats
 
 ## Development
 
