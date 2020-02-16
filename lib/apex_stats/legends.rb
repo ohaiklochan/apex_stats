@@ -19,15 +19,16 @@ class ApexStats::Legends
     doc = Nokogiri::HTML(open("https://www.digitaltrends.com/gaming/apex-legends-characters-guide/"))
     
     x = ApexStats::Legends.new
-    x.name = doc.css("div.heroes-header-title h1").text
-    x.backstory = doc.css("div.heroes-lore p").text.gsub(".",". ")
+    
+    binding.pry
+    x.name = doc.search("").text
+    x.backstory = doc.search("").text.gsub(".",". ")
     x.abilities = []
-    doc.css("div.heroes-abilities-ability").each do |ability|
-      ability_name = ability.css("div.ability-name").text
-      ability_description = ability.css("div.ability-description").text
+    doc.search("").each do |ability|
+      ability_name = ability.search("").text
+      ability_description = ability.search("").text
       x.abilities << {:ability_name => ability_name, :ability_description => ability_description}
     end
-    x.role = doc.css("div.heroes-header-title span.stat-role").text
     x
   end
     
