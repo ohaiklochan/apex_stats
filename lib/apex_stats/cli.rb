@@ -41,13 +41,43 @@ class ApexStats::CLI
     show_stats(x)
   end
   
-  def display_wraith
-    x = ApexStats::Legend.wraith
+  def display_pathfinder
+    x = ApexStats::Legend.pathfinder
     show_stats(x)
   end
   
-  def display_wraith
-    x = ApexStats::Legend.wraith
+  def display_lifeline
+    x = ApexStats::Legend.lifeline
+    show_stats(x)
+  end
+  
+  def display_octane
+    x = ApexStats::Legend.octane
+    show_stats(x)
+  end
+  
+  def display_bangalore
+    x = ApexStats::Legend.bangalore
+    show_stats(x)
+  end
+  
+  def display_bloodhound
+    x = ApexStats::Legend.bloodhound
+    show_stats(x)
+  end
+  
+  def display_mirage
+    x = ApexStats::Legend.mirage
+    show_stats(x)
+  end
+  
+  def display_caustic
+    x = ApexStats::Legend.caustic
+    show_stats(x)
+  end
+  
+  def display_gibraltar
+    x = ApexStats::Legend.gibraltar
     show_stats(x)
   end
   
