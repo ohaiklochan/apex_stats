@@ -14,7 +14,7 @@ class ApexStats::CLI
   
   def list_legends
     @stats = ApexStats::Stats.all
-    @stats.each.with_index(1) do |deal, i|
+    @stats.each.with_index(1) do |legend, i|
       puts "#{i}. #{@legend.name}."
     end
   end
@@ -71,6 +71,82 @@ class ApexStats::CLI
         puts "What? Type in something that makes sense to me."
         menu
       end
+    end
+  end
+  
+  def display_stats_list
+    @stats = ApexStats::Stats.all
+    bylist = @stats.sort_by {|hash| hash[:legendname]}
+      puts ""
+      puts "                               List of Legends"
+      puts "==========================================================================="
+      puts "||       HERO      ||   TYPE  || WINRATE || POPULARITY || K/D Ratio ||"
+      bylist.each.with_index(1) do |legendstats, i|
+        show_legendname = check_width(legendstats[:legendname], i)
+        show_legendtype = check_width(legendstats[:legendtype], 1 , 8)
+        show_winrate = check_width(legendstats[:winrate], 1 , 7)
+        show_popularity = check_width(legendstats[:popularity], 1 , 8)
+        show_legendkd = check_width(legendstats[:legendkd], 1 , 8)
+        puts "|| #{i}. #{show_legendname} || #{show_legendtype} ||  #{show_winrate} ||    #{show_popularity} ||    #{show_legendkd} ||"
+      end
+      puts "============================================================================"
+    end
+  end
+    
+  def display_stats_winrate
+    @stats = ApexStats::Stats.all
+    bywin = @stats.sort_by {|hash| hash[:legendname]}
+      puts ""
+      puts "                          List of Legends by Winrate"
+      puts "============================================================================="
+      puts "||       HERO      ||   TYPE  || WINRATE || POPULARITY || K/D Ratio ||"
+      bywin.each.with_index(1) do |legendstats, i|
+        show_legendname = check_width(legendstats[:legendname], i)
+        show_legendtype = check_width(legendstats[:legendtype], 1 , 8)
+        show_winrate = check_width(legendstats[:winrate], 1 , 7)
+        show_popularity = check_width(legendstats[:popularity], 1 , 8)
+        show_legendkd = check_width(legendstats[:legendkd], 1 , 8)
+        puts "|| #{i}. #{show_legendname} || #{show_legendtype} ||  #{show_winrate} ||    #{show_popularity} ||    #{show_legendkd} ||"
+      end
+      puts "============================================================================="
+    end
+  end
+    
+  def display_stats_popularity
+    @stats = ApexStats::Stats.all
+    bypop = @stats.sort_by {|hash| hash[:legendname]}
+      puts ""
+      puts "                        List of Legends by Popularity"
+      puts "============================================================================="
+      puts "||       HERO      ||   TYPE  || WINRATE || POPULARITY || K/D Ratio ||"
+      bypop.each.with_index(1) do |legendstats, i|
+        show_legendname = check_width(legendstats[:legendname], i)
+        show_legendtype = check_width(legendstats[:legendtype], 1 , 8)
+        show_winrate = check_width(legendstats[:winrate], 1 , 7)
+        show_popularity = check_width(legendstats[:popularity], 1 , 8)
+        show_legendkd = check_width(legendstats[:legendkd], 1 , 8)
+        puts "|| #{i}. #{show_legendname} || #{show_legendtype} ||  #{show_winrate} ||    #{show_popularity} ||    #{show_legendkd} ||"
+      end
+      puts "============================================================================="
+    end
+  end
+    
+  def display_stats_winrate
+    @stats = ApexStats::Stats.all
+    bykd = @stats.sort_by {|hash| hash[:legendname]}
+      puts ""
+      puts "                      List of Legends by Kill/Damage"
+      puts "============================================================================="
+      puts "||       HERO      ||   TYPE  || WINRATE || POPULARITY || K/D Ratio ||"
+      bykd.each.with_index(1) do |legendstats, i|
+        show_legendname = check_width(legendstats[:legendname], i)
+        show_legendtype = check_width(legendstats[:legendtype], 1 , 8)
+        show_winrate = check_width(legendstats[:winrate], 1 , 7)
+        show_popularity = check_width(legendstats[:popularity], 1 , 8)
+        show_legendkd = check_width(legendstats[:legendkd], 1 , 8)
+        puts "|| #{i}. #{show_legendname} || #{show_legendtype} ||  #{show_winrate} ||    #{show_popularity} ||    #{show_legendkd} ||"
+      end
+      puts "============================================================================="
     end
   end
   
