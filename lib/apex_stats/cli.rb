@@ -199,4 +199,20 @@ class ApexStats::CLI
     puts "See ya later!"
   end
   
+  def check_width(string, index = 1, column_width = 13)
+    if index < 10 && string.size <= column_width
+      add_space = column_width - string.size - 1
+      add_space.times do
+        string = string + " "
+      end
+      string
+    elsif index > 9 && string.size <= column_width
+      add_space = column_width - string.size - 2
+      add_space.times do
+        string = string + " "
+      end
+    end
+    string
+  end
+
 end
