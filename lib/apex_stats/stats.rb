@@ -4,19 +4,21 @@ class ApexStats::Stats
   
   def self.all
   #scrape apex stats tracker and return stats based on that DATA
-  ApexStats::StatsScraper.new("https://dreamteam.gg/apex")
+    self.scrape_stats
+  end
   
-    stats_1 = self.new
-    stats_1.name = "Bangalore"
-    stats_1.info = "Real Name: Anita Williams. Professional Soldier."
-    stats_1.url = "https://www.ea.com/games/apex-legends/about/characters/bangalore"
+  def self.scrape_stats
+    stats = []
+  
+    stats << self.scrape_dreamteam
+    stats << self.scrape_ea
     
-    stats_2 = self.new
-    stats_2.name = "Bloodhound"
-    stats_2.info = "Real Name: Unknown. Technological Tracker."
-    stats_2.url = "https://www.ea.com/games/apex-legends/about/characters/bloodhound"
-
     stats
+  end
+  
+  def self.scrape_dreamteam
+    doc = Nokogiri::HTML(open("https:dreamteam.gg/apex"))
+    binding.pry
   end
   
 end
