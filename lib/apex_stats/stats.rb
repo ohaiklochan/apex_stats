@@ -3,7 +3,6 @@ class ApexStats::Stats
   attr_accessor :name, :info, :url
   
   def self.all
-  #scrape apex stats tracker and return stats based on that DATA
     self.scrape_stats
   end
   
@@ -15,18 +14,16 @@ class ApexStats::Stats
   
   def self.scrape_playapex
     doc = Nokogiri::HTML(open("https://play-apex.net/stats"))
-    container = doc.search("")
+    container = doc.search("div.background")
     counter = 0
-    container.search("").each do |x|
-      counter = counter + 1
-        if counter >= 1 && counter <= 9
-          legend_name = x.search("").text
-          legend_type = x.search("").text
-          legend_winrate = x.search("").text
-          legend_popularity = x.search("").text
-          legend_kill = x.search("").text
-          stats << {:legendname => legend_name, :legendtype => legend_type, :winrate => legend_winrate, :popularity => legend_popularity, :legendkill => legend_kd}
-        end
+    container.search("div.background h1").each do |x|
+    counter = counter + 1
+      if counter >= 1 && counter <= 9
+        legend_name = x.search("a.div.display.inline-block").text
+        legend_winrate = x.search("").text
+        legend_popularity = x.search("").text
+        legend_kill = x.search("").text
+        stats << {:legendname => legend_name, :winrate => legend_winrate, :popularity => legend_popularity, :legendkill => legend_kd}
       end
     end
   end

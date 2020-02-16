@@ -16,19 +16,17 @@ class ApexStats::Legends
     # https://play-apex.net/stats/Caustic"]
     
   def self.scrapelegend
-    doc = Nokogiri::HTML(open("https://www.digitaltrends.com/gaming/apex-legends-characters-guide/"))
-    
+    doc = Nokogiri::HTML(open("https://dreamteam.gg/apex/wiki/apex-legends-complete-characters-guide"))
     x = ApexStats::Legends.new
-    
     binding.pry
-    x.name = doc.search("").text
-    x.backstory = doc.search("").text.gsub(".",". ")
+    x.name = doc.search("h2.text-align i").text
+    x.backstory = doc.search("p.span strong").text.gsub(".",". ")
     x.abilities = []
-    doc.search("").each do |ability|
-      ability_name = ability.search("").text
-      ability_description = ability.search("").text
-      x.abilities << {:ability_name => ability_name, :ability_description => ability_description}
-    end
+    # doc.search("https://dreamteam.gg/apex/wiki/apex-legends-complete-characters-guide").each do |ability|
+    #   ability_name = ability.search("").text
+    #   ability_description = ability.search("").text
+    #   x.abilities << {:ability_name => ability_name, :ability_description => ability_description}
+    # end
     x
   end
     
