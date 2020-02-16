@@ -21,7 +21,7 @@ class ApexStats::CLI
   
   def menu
     
-    puts "Type the following to change sorting rules: '(win)rate' '(pop)ularity' '(kd)ratio' or '(alph)abetically'."
+    puts "Type the following to change sorting rules: '(win)rate' '(pop)ularity' '(kd)ratio' or '(list)'."
     puts "Type the name of one of the above heroes to see more about that hero."
     puts "Type 'exit' to exit."
 
@@ -33,10 +33,10 @@ class ApexStats::CLI
         display_stats_popularity
         menu
       elsif input == "kdratio" || input == "kd"
-        display_stats_herokd
+        display_stats_legendkd
         menu
-      elsif input == "alphabetically" || input == "alph"
-        display_stats_alphabetically
+      elsif input == "list" || input == "list"
+        display_stats_list
         menu
       elsif input == "wraith"
         display_wraith
