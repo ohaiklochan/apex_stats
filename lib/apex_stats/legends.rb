@@ -17,19 +17,20 @@ class ApexStats::Legends
     
   def self.scrapelegend
     doc = Nokogiri::HTML(open("https://dreamteam.gg/apex/wiki/apex-legends-complete-characters-guide"))
-    x = ApexStats::Legends.new
-    binding.pry
-    x.name = doc.search("h2.text-align i").text
-    x.backstory = doc.search("p.span strong").text.gsub(".",". ")
-    x.abilities = []
-    # doc.search("https://dreamteam.gg/apex/wiki/apex-legends-complete-characters-guide").each do |ability|
-    #   ability_name = ability.search("").text
-    #   ability_description = ability.search("").text
-    #   x.abilities << {:ability_name => ability_name, :ability_description => ability_description}
-    # end
-    x
-  end
-    
+    legend = ApexStats::Legends.new
+    legend.name = doc.search("h2.text-align i").text
+    legend.backstory = doc.search("p.span strong").text.gsub(".",". ")
+    legend.abilities = []
+    doc.search("https://dreamteam.gg/apex/wiki/apex-legends-complete-characters-guide").each do |ability|
+      passive_ability_name = passiive_ability.search("").text
+      passive_ability_description = passiive_ability.search("").text
+      tactical_ability_name = tactical_ability.search("").text
+      tactical_ability_description = tactical_ability.search("").text
+      ultimate_ability_name = ultimate_ability.search("").text
+      ultimate_ability_description = ultimate_ability.search("").text
+      legend.abilities << {:passive_ability_name => passive_ability_name, :passive_ability_description => passive_ability_description, :tactical_ability_name => tactical_ability_name, :tactical_ability_description => tactical_ability_description,:ultimate_ability_name => ultimate_ability_name, :ultimate_ability_description => ultimate_ability_description}
+    end
+    legend
   end
   
   def self.wraith
