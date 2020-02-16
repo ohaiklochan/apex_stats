@@ -10,15 +10,19 @@ class ApexStats::Stats
   def self.scrape_stats
     stats = []
   
-    stats << self.scrape_dreamteam
-    stats << self.scrape_ea
+    stats << self.scrape_gamingfeature
+    stats << self.scrape_pcgames
     
     stats
   end
   
-  def self.scrape_dreamteam
-    doc = Nokogiri::HTML(open("https:dreamteam.gg/apex"))
+  def self.scrape_gamingfeature
+    doc = Nokogiri::HTML(open("https://www.gamingfeature.com/apex-legends-stats/"))
     binding.pry
+  end
+  
+  def self.scrape_pcgames
+    doc = Nokogiri::HTML(open("https://www.pcgamesn.com/apex-legends/characters-abilities-guide"))
   end
   
 end
