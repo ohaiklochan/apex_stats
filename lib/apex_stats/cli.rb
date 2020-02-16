@@ -1,16 +1,21 @@
 class ApexStats::CLI
   
   def call
+    welcome
     list_legends
     menu
     goodbye
   end
   
-  def list_legends
+  def welcome
+    puts ""
     puts "Welcome to Apex Stats!"
+  end
+  
+  def list_legends
     @stats = ApexStats::Stats.all
     @stats.each.with_index(1) do |deal, i|
-      puts "#{i}. #{@stats}."
+      puts "#{i}. #{@legend.name}."
     end
   end
   
