@@ -20,18 +20,56 @@ class ApexStats::CLI
   end
   
   def menu
-    input = nil
-    while input != "exit"
-      puts "Enter the number of the legend you'd like to know more about or type in list to list the legends:"
-      input = gets.strip.downcase
-      
-      if input.to_i > 0
-        the_stats = @stats[input.to_i-1]
-        puts "#{the_stats.name}."
-      elsif input == "list"
-        list_legends
+    
+    puts "Type the following to change sorting rules: '(win)rate' '(pop)ularity' '(kd)ratio' or '(alph)abetically'."
+    puts "Type the name of one of the above heroes to see more about that hero."
+    puts "Type 'exit' to exit."
+
+    input = gets.strip.downcase
+      if input == "winrate" || input == "win"
+        display_stats_winrate
+        menu
+      elsif input == "popularity" || input == "pop"
+        display_stats_popularity
+        menu
+      elsif input == "kdratio" || input == "kd"
+        display_stats_herokd
+        menu
+      elsif input == "alphabetically" || input == "alph"
+        display_stats_alphabetically
+        menu
+      elsif input == "wraith"
+        display_wraith
+        menu
+      elsif input == "pathfinder"
+        display_pathfinder
+        menu
+      elsif input == "lifeline"
+        display_lifeline
+        menu
+      elsif input == "octane"
+        display_octane
+        menu
+      elsif input == "bangalore"
+        display_bangalore
+        menu
+      elsif input == "bloodhound"
+        display_bloodhound
+        menu
+      elsif input == "mirage"
+        display_mirage
+        menu
+      elsif input == "caustic"
+        display_caustic
+        menu
+      elsif input == "gibraltar"
+        display_gibraltar
+        menu
+      elsif input == "exit"
+        exit
       else
-        puts "Not sure what that is. Type list, legend number, or exit."
+        puts "What? Type in something that makes sense to me."
+        menu
       end
     end
   end
