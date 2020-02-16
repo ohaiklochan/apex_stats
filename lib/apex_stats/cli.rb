@@ -86,7 +86,7 @@ class ApexStats::CLI
         show_legendtype = check_width(legendstats[:legendtype], 1 , 8)
         show_winrate = check_width(legendstats[:winrate], 1 , 7)
         show_popularity = check_width(legendstats[:popularity], 1 , 8)
-        show_legendkd = check_width(legendstats[:legendkd], 1 , 8)
+        show_legendkd = check_width(legendstats[:legendkill], 1 , 8)
         puts "|| #{i}. #{show_legendname} || #{show_legendtype} ||  #{show_winrate} ||    #{show_popularity} ||    #{show_legendkd} ||"
       end
       puts "============================================================================"
@@ -105,7 +105,7 @@ class ApexStats::CLI
         show_legendtype = check_width(legendstats[:legendtype], 1 , 8)
         show_winrate = check_width(legendstats[:winrate], 1 , 7)
         show_popularity = check_width(legendstats[:popularity], 1 , 8)
-        show_legendkd = check_width(legendstats[:legendkd], 1 , 8)
+        show_legendkd = check_width(legendstats[:legendkill], 1 , 8)
         puts "|| #{i}. #{show_legendname} || #{show_legendtype} ||  #{show_winrate} ||    #{show_popularity} ||    #{show_legendkd} ||"
       end
       puts "============================================================================="
@@ -124,7 +124,7 @@ class ApexStats::CLI
         show_legendtype = check_width(legendstats[:legendtype], 1 , 8)
         show_winrate = check_width(legendstats[:winrate], 1 , 7)
         show_popularity = check_width(legendstats[:popularity], 1 , 8)
-        show_legendkd = check_width(legendstats[:legendkd], 1 , 8)
+        show_legendkd = check_width(legendstats[:legendkill], 1 , 8)
         puts "|| #{i}. #{show_legendname} || #{show_legendtype} ||  #{show_winrate} ||    #{show_popularity} ||    #{show_legendkd} ||"
       end
       puts "============================================================================="
@@ -143,7 +143,7 @@ class ApexStats::CLI
         show_legendtype = check_width(legendstats[:legendtype], 1 , 8)
         show_winrate = check_width(legendstats[:winrate], 1 , 7)
         show_popularity = check_width(legendstats[:popularity], 1 , 8)
-        show_legendkd = check_width(legendstats[:legendkd], 1 , 8)
+        show_legendkd = check_width(legendstats[:legendkill], 1 , 8)
         puts "|| #{i}. #{show_legendname} || #{show_legendtype} ||  #{show_winrate} ||    #{show_popularity} ||    #{show_legendkd} ||"
       end
       puts "============================================================================="
