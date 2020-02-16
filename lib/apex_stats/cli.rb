@@ -9,6 +9,8 @@ class ApexStats::CLI
   def list_legends
     puts "Welcome to Apex Stats!"
     @stats = ApexStats::Stats.all
+    @stats.each.with_index(1) do |deal, i|
+      puts "#{i}. #{@stats}."
     end
   end
   
@@ -17,12 +19,11 @@ class ApexStats::CLI
     while input != "exit"
       puts "Enter the number of the legend you'd like to know more about or type in list to list the legends:"
       input = gets.strip.downcase
-      case input
-      when "1"
-        puts "info on Bangalore goes here"
-      when "2"
-        puts "info on Bloodhound goes here"
-      when "list"
+      
+      if input.to_i > 0
+        the_stats = @stats[input.to_i-1]
+        puts "#{the_stats.name}."
+      elsif input == "list"
         list_legends
       else
         puts "Not sure what that is. Type list, legend number, or exit."
