@@ -66,7 +66,7 @@ class ApexStats::CLI
         display_gibraltar
         menu
       elsif input == "exit"
-        exit
+        goodbye
       else
         puts "What? Type in something that makes sense to me."
         menu

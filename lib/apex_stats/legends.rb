@@ -30,7 +30,6 @@ class ApexStats::Legends
     x.role = doc.css("div.heroes-header-title span.stat-role").text
     x
   end
-  end
     
   end
   
