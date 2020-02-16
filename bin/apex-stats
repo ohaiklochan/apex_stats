@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 
-require './lib/apex_stats'
+require "bundler/setup"
+require "apex_stats"
+
 ApexStats::CLI.new.call
 
 
