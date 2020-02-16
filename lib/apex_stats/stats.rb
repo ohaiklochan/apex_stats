@@ -9,10 +9,7 @@ class ApexStats::Stats
   
   def self.scrape_stats
     stats = []
-  
     stats << self.scrape_playapex
-    stats << self.scrape_pcgames
-    
     stats
   end
   
@@ -22,9 +19,6 @@ class ApexStats::Stats
     popularity = doc.search("span.elementor-progress-text").text
     binding.pry
   end
-  
-  def self.scrape_pcgames
-    doc = Nokogiri::HTML(open("https://www.pcgamesn.com/apex-legends/characters-abilities-guide"))
-  end
+
   
 end
