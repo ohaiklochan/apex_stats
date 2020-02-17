@@ -4,21 +4,20 @@ class ApexStats::Legends
   
   @@all = []
     
-  def self.scrape_legend
-    doc = Nokogiri::HTML(open("https://apexlegends.gamepedia.com/wraith"))
+  def self.scrape_legend(page_url)
+    doc = Nokogiri::HTML(open(page_url))
     legend = ApexStats::Legends.new
-              binding.pry
     legend.name = doc.search("h1#firstHeading.firstHeading").text
-    legend.backstory = doc.search("#mw-content-text p")[3..5].text.gsub(".",". ")
+    legend.backstory = doc.search("#mw-content-text p")[3].text.gsub(".",". ")
     legend.abilities = []
-    doc.search("https://dreamteam.gg/apex/wiki/apex-legends-complete-characters-guide").each do |ability|
-      passive_ability.name = doc.search("").text
-      passive_ability.description = doc.search("").text
-      tactical_ability.name = doc.search("").text
-      tactical_ability.description = doc.search("").text
-      ultimate_ability.name = doc.search("").text
-      ultimate_ability.description = doc.search("").text
-      legend.abilities << {:passiveabilityname => passive_ability_name, :passiveabilitydescription => passive_ability_description, :tacticalabilityname => tactical_ability_name, :tacticalabilitydescription => tactical_ability_description,:ultimateabilityname => ultimate_ability_name, :ultimateabilitydescription => ultimate_ability_description}
+    doc.search("span#Abilities.mw-headline").each do |ability|
+      passive_ability_name = doc.search("span.mw-headline")[3].text
+      passive_ability_description = doc.search("div.tabbertab li")[6].text
+      tactical_ability_name = doc.search("span.mw-headline")[2].text
+      tactical_ability_description = doc.search("div.tabbertab li")[1].text
+      ultimate_ability_description = doc.search("span.mw-headline")[4].text
+      ultimate_ability_description = doc.search("div.tabbertab li")[4].text
+      legend.abilities << {:passive_ability_name => passive_ability_name, :passive_ability_description => passive_ability_description, :tactical_ability_name => tactical_ability_name, :tactical_ability_description => tactical_ability_description,:ultimate_ability_name => ultimate_ability_name, :ultimate_ability_description => ultimate_ability_description}
     end
     legend
   end
