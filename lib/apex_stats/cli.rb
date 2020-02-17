@@ -13,6 +13,7 @@ class ApexStats::CLI
   end
   
   def display_stats_list
+    puts ""
     puts "Legends:"  
     puts "
       1. wraith
@@ -123,23 +124,23 @@ class ApexStats::CLI
   end
   
   def show_stats(legend)
-    puts "Name: #{legend.name}"
+    puts "Name: #{ApexStats::Legends.name}"
     puts ""
     puts ""
-    puts "Backstory: #{legend.backstory}"
+    puts "Backstory: #{ApexStats::Legends.backstory}"
     puts ""
     puts ""
     puts "**Abilities**"
     puts "------------------------"
-    legend.abilities.each do |ability|
-      puts "Passive Ability: #{passive_ability_name[:passive_ability_name]}"
-      puts "Passive Description: " + "#{passive_ability_description[:passive_ability_description]}"
-      puts ""
-      puts "Tactical Ability: #{tactical_ability_name[:tactical_ability_name]}"
-      puts "Tactical Description: " + "#{tactical_ability_description[:tactical_ability_description]}"
-      puts ""
-      puts "Ultimate Ability: #{ultimate_ability_name[:ultimate_ability_name]}"
-      puts "Ultimate Description: " + "#{ultimate_ability_description[:ultimate_ability_description]}"
-      puts ""
-    end
+    #legend.abilities.each do |ability|
+    puts "Passive Ability: #{passive_ability_name[:passive_ability_name]}"
+    puts "Passive Description: " + "#{passive_ability_description[:passive_ability_description]}"
+    puts ""
+    puts "Tactical Ability: #{tactical_ability_name[:tactical_ability_name]}"
+    puts "Tactical Description: " + "#{tactical_ability_description[:tactical_ability_description]}"
+    puts ""
+    puts "Ultimate Ability: #{ultimate_ability_name[:ultimate_ability_name]}"
+    puts "Ultimate Description: " + "#{ultimate_ability_description[:ultimate_ability_description]}"
+    puts ""
   end
+  
