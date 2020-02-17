@@ -20,7 +20,6 @@ class ApexStats::CLI
   end
   
   def menu
-    
     puts "Type the following to change sorting rules: '(win)rate' '(pop)ularity' '(kd)ratio' or '(list)'."
     puts "Type the name of one of the above heroes to see more about that hero."
     puts "Type 'exit' to exit."
@@ -224,9 +223,14 @@ class ApexStats::CLI
     puts "**Abilities**"
     puts "------------------------"
     legend.abilities.each do |ability|
-      puts "Ability: #{ability[:ability_name]}"
-      puts "Description: " + "#{ability[:ability_description]}"
+      puts "Passive Ability: #{passive_ability[:passive_ability_name]}"
+      puts "Passive Description: " + "#{passive_ability[:passive_ability_description]}"
+      puts ""
+      puts "Tactical Ability: #{tactical_ability[:tactical_ability_name]}"
+      puts "Tactical Description: " + "#{tactical_ability[:tactical_ability_description]}"
+      puts ""
+      puts "Ultimate Ability: #{ultimate_ability[:ultimate_ability_name]}"
+      puts "Ultimate Description: " + "#{ultimate_ability[:ultimate_ability_description]}"
       puts ""
     end
   end
-end
