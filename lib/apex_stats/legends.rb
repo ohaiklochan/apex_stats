@@ -4,23 +4,22 @@ class ApexStats::Legends
   
   @@all = []
     
-  def self.all
-    self.scrape_legend(page_url)
-  end
+  # def self.all
+  #   self.scrape_legend
+  # end
   
-  def self.scrape_legend(page_url)
-    legends = []
-    legends << self.scrape_legend(page_url)
-    legends
-  end  
+  # def self.scrape_legend(page_url)
+  #   legends = []
+  #   legends << self.scrape_legend(page_url)
+  #   legends
+  # end
     
   def self.scrape_legend(page_url)
     doc = Nokogiri::HTML(open(page_url))
     legend = ApexStats::Legends.new
     legend.name = doc.search("h1#firstHeading.firstHeading").text
     legend.backstory = doc.search("#mw-content-text p")[3].text.gsub(".",". ")
-    legend.abilities = []
-    doc.search("span#Abilities.mw-headline").each do |ability|
+    legend.abilities = doc.search("span#Abilities.mw-headline").each do |ability|
       passive_ability_name = doc.search("span.mw-headline")[3].text
       passive_ability_description = doc.search("div.tabbertab li")[6].text
       tactical_ability_name = doc.search("span.mw-headline")[2].text
@@ -32,6 +31,7 @@ class ApexStats::Legends
     legend
   end
   
+
   def self.wraith
     wraith = self.scrape_legend("https://apexlegends.gamepedia.com/Wraith")
     wraith

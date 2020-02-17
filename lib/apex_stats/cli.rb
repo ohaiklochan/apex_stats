@@ -2,7 +2,7 @@ class ApexStats::CLI
   
   def call
     welcome
-    list_legends
+    display_stats_list
     menu
     goodbye
   end
@@ -12,20 +12,28 @@ class ApexStats::CLI
     puts "Welcome to Apex Stats!"
   end
   
-  def list_legends
-    @legends = ApexStats::Legends.all
-    @legends.each.with_index(1) do |legend, i|
-      puts "#{i}. #{legend.name}."
-    end
+  def display_stats_list
+    puts "Legends:"  
+    puts "
+      1. wraith
+      2. pathfinder
+      3. lifeline
+      4. octane
+      5. bangalore
+      6. bloodhound
+      7. mirage
+      8. caustic
+      9. gibraltar"
   end
+
   
   def menu
-    puts "Type the name of one of the above legends to see more about that legends."
+    puts "Type the name of one of the legends to see more about that legend."
     puts "Type 'list' to list out all legends."
     puts "Type 'exit' to exit."
 
     input = gets.strip.downcase
-      if input == "list" || input == "list"
+      if input == "list"
         display_stats_list
         menu
       elsif input == "wraith"
@@ -66,48 +74,48 @@ class ApexStats::CLI
 
   
   def display_wraith
-    x = ApexStats::Legend.wraith
-    show_stats(x)
+    legend = ApexStats::Legends.wraith
+    show_stats(legend)
   end
   
   def display_pathfinder
-    x = ApexStats::Legend.pathfinder
-    show_stats(x)
+    legend = ApexStats::Legends.pathfinder
+    show_stats(legend)
   end
   
   def display_lifeline
-    x = ApexStats::Legend.lifeline
-    show_stats(x)
+    legend = ApexStats::Legends.lifeline
+    show_stats(legend)
   end
   
   def display_octane
-    x = ApexStats::Legend.octane
-    show_stats(x)
+    legend = ApexStats::Legends.octane
+    show_stats(legend)
   end
   
   def display_bangalore
-    x = ApexStats::Legend.bangalore
-    show_stats(x)
+    legend = ApexStats::Legends.bangalore
+    show_stats(legend)
   end
   
   def display_bloodhound
-    x = ApexStats::Legend.bloodhound
-    show_stats(x)
+    legend = ApexStats::Legends.bloodhound
+    show_stats(legend)
   end
   
   def display_mirage
-    x = ApexStats::Legend.mirage
-    show_stats(x)
+    legend = ApexStats::Legends.mirage
+    show_stats(legend)
   end
   
   def display_caustic
-    x = ApexStats::Legend.caustic
-    show_stats(x)
+    legend = ApexStats::Legends.caustic
+    show_stats(legend)
   end
   
   def display_gibraltar
-    x = ApexStats::Legend.gibraltar
-    show_stats(x)
+    legend = ApexStats::Legends.gibraltar
+    show_stats(legend)
   end
   
   def goodbye
@@ -124,14 +132,14 @@ class ApexStats::CLI
     puts "**Abilities**"
     puts "------------------------"
     legend.abilities.each do |ability|
-      puts "Passive Ability: #{passive_ability[:passive_ability_name]}"
-      puts "Passive Description: " + "#{passive_ability[:passive_ability_description]}"
+      puts "Passive Ability: #{passive_ability_name[:passive_ability_name]}"
+      puts "Passive Description: " + "#{passive_ability_description[:passive_ability_description]}"
       puts ""
-      puts "Tactical Ability: #{tactical_ability[:tactical_ability_name]}"
-      puts "Tactical Description: " + "#{tactical_ability[:tactical_ability_description]}"
+      puts "Tactical Ability: #{tactical_ability_name[:tactical_ability_name]}"
+      puts "Tactical Description: " + "#{tactical_ability_description[:tactical_ability_description]}"
       puts ""
-      puts "Ultimate Ability: #{ultimate_ability[:ultimate_ability_name]}"
-      puts "Ultimate Description: " + "#{ultimate_ability[:ultimate_ability_description]}"
+      puts "Ultimate Ability: #{ultimate_ability_name[:ultimate_ability_name]}"
+      puts "Ultimate Description: " + "#{ultimate_ability_description[:ultimate_ability_description]}"
       puts ""
     end
   end
