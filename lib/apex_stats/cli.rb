@@ -13,28 +13,19 @@ class ApexStats::CLI
   end
   
   def list_legends
-    @stats = ApexStats::Stats.all
-    @stats.each.with_index(1) do |legend, i|
-      puts "#{i}. #{show_legendname}."
+    @legends = ApexStats::Legends.all
+    @legends.each.with_index(1) do |legend, i|
+      puts "#{i}. #{legend.name}."
     end
   end
   
   def menu
-    puts "Type the following to change sorting rules: '(win)rate' '(pop)ularity' '(kd)ratio' or '(list)'."
-    puts "Type the name of one of the above heroes to see more about that hero."
+    puts "Type the name of one of the above legends to see more about that legends."
+    puts "Type 'list' to list out all legends."
     puts "Type 'exit' to exit."
 
     input = gets.strip.downcase
-      if input == "winrate" || input == "win"
-        display_stats_winrate
-        menu
-      elsif input == "popularity" || input == "pop"
-        display_stats_popularity
-        menu
-      elsif input == "kdratio" || input == "kd"
-        display_stats_legendkd
-        menu
-      elsif input == "list" || input == "list"
+      if input == "list" || input == "list"
         display_stats_list
         menu
       elsif input == "wraith"
@@ -71,80 +62,6 @@ class ApexStats::CLI
         menu
       end
     end
-  end
-  
-  def display_stats_list
-    @stats = ApexStats::Stats.all
-    bylist = @stats.sort_by {|hash| hash[:legendname]}
-    puts ""
-    puts "                               List of Legends"
-    puts "==========================================================================="
-    puts "||       HERO      ||   TYPE  || WINRATE || POPULARITY || K/D Ratio ||"
-    bylist.each.with_index(1) do |legendstats, i|
-      show_legendname = check_width(legendstats[:legendname], i)
-      show_legendtype = check_width(legendstats[:legendtype], 1 , 8)
-      show_winrate = check_width(legendstats[:winrate], 1 , 7)
-      show_popularity = check_width(legendstats[:popularity], 1 , 8)
-      show_legendkd = check_width(legendstats[:legendkill], 1 , 8)
-      puts "|| #{i}. #{show_legendname} || #{show_legendtype} ||  #{show_winrate} ||    #{show_popularity} ||    #{show_legendkd} ||"
-    end
-    puts "============================================================================"
-  end
-    
-  def display_stats_winrate
-    @stats = ApexStats::Stats.all
-    bywin = @stats.sort_by {|hash| hash[:legendname]}
-    puts ""
-    puts "                          List of Legends by Winrate"
-    puts "============================================================================="
-    puts "||       HERO      ||   TYPE  || WINRATE || POPULARITY || K/D Ratio ||"
-    bywin.each.with_index(1) do |legendstats, i|
-      show_legendname = check_width(legendstats[:legendname], i)
-      show_legendtype = check_width(legendstats[:legendtype], 1 , 8)
-      show_winrate = check_width(legendstats[:winrate], 1 , 7)
-      show_popularity = check_width(legendstats[:popularity], 1 , 8)
-      show_legendkd = check_width(legendstats[:legendkill], 1 , 8)
-      puts "|| #{i}. #{show_legendname} || #{show_legendtype} ||  #{show_winrate} ||    #{show_popularity} ||    #{show_legendkd} ||"
-    end
-    puts "============================================================================="
-  end
- 
-    
-  def display_stats_popularity
-    @stats = ApexStats::Stats.all
-    bypop = @stats.sort_by {|hash| hash[:legendname]}
-    puts ""
-    puts "                        List of Legends by Popularity"
-    puts "============================================================================="
-    puts "||       HERO      ||   TYPE  || WINRATE || POPULARITY || K/D Ratio ||"
-    bypop.each.with_index(1) do |legendstats, i|
-      show_legendname = check_width(legendstats[:legendname], i)
-      show_legendtype = check_width(legendstats[:legendtype], 1 , 8)
-      show_winrate = check_width(legendstats[:winrate], 1 , 7)
-      show_popularity = check_width(legendstats[:popularity], 1 , 8)
-      show_legendkd = check_width(legendstats[:legendkill], 1 , 8)
-      puts "|| #{i}. #{show_legendname} || #{show_legendtype} ||  #{show_winrate} ||    #{show_popularity} ||    #{show_legendkd} ||"
-    end
-    puts "============================================================================="
-  end
-
-    
-  def display_stats_winrate
-    @stats = ApexStats::Stats.all
-    bykd = @stats.sort_by {|hash| hash[:legendname]}
-    puts ""
-    puts "                      List of Legends by Kill/Damage"
-    puts "============================================================================="
-    puts "||       HERO      ||   TYPE  || WINRATE || POPULARITY || K/D Ratio ||"
-    bykd.each.with_index(1) do |legendstats, i|
-      show_legendname = check_width(legendstats[:legendname], i)
-      show_legendtype = check_width(legendstats[:legendtype], 1 , 8)
-      show_winrate = check_width(legendstats[:winrate], 1 , 7)
-      show_popularity = check_width(legendstats[:popularity], 1 , 8)
-      show_legendkd = check_width(legendstats[:legendkill], 1 , 8)
-      puts "|| #{i}. #{show_legendname} || #{show_legendtype} ||  #{show_winrate} ||    #{show_popularity} ||    #{show_legendkd} ||"
-    end
-    puts "============================================================================="
   end
 
   
@@ -195,22 +112,6 @@ class ApexStats::CLI
   
   def goodbye
     puts "See ya later!"
-  end
-  
-  def check_width(string, index = 1, column_width = 13)
-    if index < 10 && string.size <= column_width
-      add_space = column_width - string.size - 1
-      add_space.times do
-        string = string + " "
-      end
-      string
-    elsif index > 9 && string.size <= column_width
-      add_space = column_width - string.size - 2
-      add_space.times do
-        string = string + " "
-      end
-    end
-    string
   end
   
   def show_stats(legend)

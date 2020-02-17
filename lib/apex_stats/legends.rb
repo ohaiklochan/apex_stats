@@ -4,6 +4,16 @@ class ApexStats::Legends
   
   @@all = []
     
+  def self.all
+    self.scrape_legend(page_url)
+  end
+  
+  def self.scrape_stats
+    stats = []
+    stats << self.scrape_legend(page_url)
+    stats
+  end  
+    
   def self.scrape_legend(page_url)
     doc = Nokogiri::HTML(open(page_url))
     legend = ApexStats::Legends.new
