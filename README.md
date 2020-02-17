@@ -1,6 +1,6 @@
 # ApexStats
 
-This gem finds the stats within all of the top characters or 'legends' in the video game Apex Legends. It is organized by usage, kills per match, damage per match, win rate, and headshots per kill. Apex Legends is a free-to-play battle royale game developed by Respawn Entertainment and published by Electronic Arts. It was released for Windows, PlayStation 4 and Xbox One. In Apex Legends, up to 20 three-man squads land on an island before searching for weapons and supplies to then attempt to defeat all other players in combat. Each player must also keep moving to avoid being caught outside the play area. The final team alive wins the round.This game is one of the biggest and most popular player-to-player games that is out on the market.
+This gem finds the information of the 'legends' of the video game Apex Legends. Apex Legends is a free-to-play battle royale game developed by Respawn Entertainment and published by Electronic Arts. It was released for Windows, PlayStation 4 and Xbox One. In Apex Legends, up to 20 three-man squads land on an island before searching for weapons and supplies to then attempt to defeat all other players in combat. Each player must also keep moving to avoid being caught outside the play area. The final team alive wins the round.This game is one of the biggest and most popular player-to-player games that is out on the market. This gem will give you backstory and abilities for each character.
 
 ## Installation
 

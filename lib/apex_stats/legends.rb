@@ -8,10 +8,10 @@ class ApexStats::Legends
     self.scrape_legend(page_url)
   end
   
-  def self.scrape_stats
-    stats = []
-    stats << self.scrape_legend(page_url)
-    stats
+  def self.scrape_legend(page_url)
+    legends = []
+    legends << self.scrape_legend(page_url)
+    legends
   end  
     
   def self.scrape_legend(page_url)
