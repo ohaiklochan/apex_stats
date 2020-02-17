@@ -23,13 +23,13 @@ class ApexStats::Legends
 
     #legend.abilities = doc.search("span#Abilities.mw-headline").text do |ability|
 
-    passive_ability_name = doc.search("span.mw-headline")[3].text
-    passive_ability_description = doc.search("div.tabbertab li")[6].text
-    tactical_ability_name = doc.search("span.mw-headline")[2].text
-    tactical_ability_description = doc.search("div.tabbertab li")[1].text
-    ultimate_ability_description = doc.search("span.mw-headline")[4].text
-    ultimate_ability_description = doc.search("div.tabbertab li")[4].text
-      #legend.abilities << {:passive_ability_name => passive_ability_name, :passive_ability_description => passive_ability_description, :tactical_ability_name => tactical_ability_name, :tactical_ability_description => tactical_ability_description,:ultimate_ability_name => ultimate_ability_name, :ultimate_ability_description => ultimate_ability_description}
+#     legend.passive_ability_name = doc.search("span.mw-headline")[3].text
+# #    legend.passive_ability_description = doc.search("div.tabbertab li")[6].text
+#     legend.tactical_ability_name = doc.search("span.mw-headline")[2].text
+# #    legend.tactical_ability_description = doc.search("div.tabbertab li")[1].text
+#     legend.ultimate_ability_description = doc.search("span.mw-headline")[4].text
+# #    legend.ultimate_ability_description = doc.search("div.tabbertab li")[4].text
+#       #legend.abilities << {:passive_ability_name => passive_ability_name, :passive_ability_description => passive_ability_description, :tactical_ability_name => tactical_ability_name, :tactical_ability_description => tactical_ability_description,:ultimate_ability_name => ultimate_ability_name, :ultimate_ability_description => ultimate_ability_description}
     legend
   end
   
