@@ -3,7 +3,7 @@ class ApexStats::CLI
   def call
     welcome
     display_stats_list
-    ApexStats::Stats.get_data
+    ApexStats::Legends.get_data
     menu
   end
   
