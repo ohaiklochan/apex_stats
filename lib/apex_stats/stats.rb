@@ -2,7 +2,7 @@ class ApexStats::Stats
   
 #   attr_accessor :name, :info, :url
 
-def self.get_data
+  def self.get_data
     response = RestClient.get("https://public-api.tracker.gg/apex/v1/standard/profile/{Origin}/{PC}")
     legends_array = JSON.parse(response.body)["results"]
     legends_array.each do |legends|
