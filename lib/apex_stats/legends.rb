@@ -3,6 +3,14 @@ class ApexStats::Legends
   attr_accessor :name, :backstory, :passive, :tactical, :ultimate
   
   @@all = []
+  
+  def self.get_data
+    response = RestClient.get("https://public-api.tracker.gg/apex/v1/standard/profile/{Origin}/{PC}")
+    legends_array = JSON.parse(response.body)["results"]
+    legends_array.each do |legends|
+      Legends.new(legends)
+    end
+  end
     
   # def self.all
   #   self.scrape_legend

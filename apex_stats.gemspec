@@ -6,7 +6,7 @@ require "apex_stats/version"
 Gem::Specification.new do |spec|
   spec.name          = "apex_stats"
   spec.version       = ApexStats::VERSION
-  spec.authors       = ["'Chloe Foronda'"]
+  spec.authors       = ["'Chloe Steffens'"]
   spec.email         = ["'caforonda103@yahoo.com'"]
 
   spec.summary       = %q{This gem finds the stats within all of the top characters or 'legends' in the video game Apex Legends.}
@@ -41,4 +41,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec"
   spec.add_development_dependency "pry"
   spec.add_dependency "nokogiri"
+  spec.add_dependency "rest-client"
+  spec.add_dependency "json"
 end
