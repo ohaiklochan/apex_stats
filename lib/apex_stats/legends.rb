@@ -9,6 +9,7 @@ class ApexStats::Legends
     legends_array = JSON.parse(response.body)["results"]
     legends_array.each do |legends|
       Legends.new(legends)
+      binding.pry
     end
   end
     
