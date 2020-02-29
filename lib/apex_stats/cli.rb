@@ -16,15 +16,15 @@ class ApexStats::CLI
     puts ""
     puts "Which Legend would you like to know more about?"
     puts ""
-    puts "1. Wraith
-    2. Pathfinder
-    3. Lifeline
-    4. Octane
-    5. Bangalore
-    6. Bloodhound
-    7. Mirage
-    8. Caustic
-    9. Gibraltar"
+    puts "1. Wraith"
+    puts "2. Pathfinder"
+    puts "3. Lifeline"
+    puts "4. Octane"
+    puts "5. Bangalore"
+    puts "6. Bloodhound"
+    puts "7. Mirage"
+    puts "8. Caustic"
+    puts "9. Gibraltar"
   end
 
   
