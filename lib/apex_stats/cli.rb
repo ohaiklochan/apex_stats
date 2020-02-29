@@ -3,25 +3,28 @@ class ApexStats::CLI
   def call
     welcome
     display_stats_list
-    ApexStats::Legends.get_data
     menu
   end
   
   def welcome
     puts ""
     puts "Welcome to Apex Stats!"
+    puts ""
   end
   
   def display_stats_list
-    ApexStats::Legends.all.each_with_index do |legends, index|
-      puts "#{index +1}. #{legend.name}"
-    end
     puts ""
+    puts "Which Legend would you like to know more about?"
     puts ""
-    puts "Which legend would you like more info about?"
-    input = gets.strip.downcase
-
-    legend_selection(legend)
+    puts "1. Wraith
+    2. Pathfinder
+    3. Lifeline
+    4. Octane
+    5. Bangalore
+    6. Bloodhound
+    7. Mirage
+    8. Caustic
+    9. Gibraltar"
   end
 
   
@@ -70,14 +73,14 @@ class ApexStats::CLI
     end
   end
 
-  def legend_selection(legend)
-    legend = ApexStats::Legends.find_by_name(legend)
-    legend.each do |l|
-      puts "Name: #{l.name}"
-      puts "Backstory: #{l.backstory}"
-      puts "Abilities: #{l.abilities}"
-    end
-  end
+  # def legend_selection(legend)
+  #   legend = ApexStats::Legends.find_by_name(legend)
+  #   legend.each do |l|
+  #     puts "Name: #{l.name}"
+  #     puts "Backstory: #{l.backstory}"
+  #     puts "Abilities: #{l.abilities}"
+  #   end
+  # end
   
   def display_wraith
     legend = ApexStats::Legends.wraith

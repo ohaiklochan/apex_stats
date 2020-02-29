@@ -1,16 +1,16 @@
 class ApexStats::Legends
   
-  attr_accessor :name, :backstory, :passive, :tactical, :ultimate
+   attr_accessor :name, :backstory
   
   @@all = []
   
-  def self.get_data
-    response = RestClient.get("https://api.mozambiquehe.re/bridge?platform=PC&player=FactotumX,klochan_x,stylishnoob4,aceu,missesmae&auth=1ylfx8OuI39oBZcLF6GK")
-    legends_array = JSON.parse(response.body)["results"]
-    legends_array.each do |legends|
-      Legends.new(legends)
-    end
-  end
+  # def self.get_data
+  #   response = RestClient.get("https://api.mozambiquehe.re/bridge?platform=PC&player=FactotumX,klochan_x,stylishnoob4,aceu,missesmae&auth=1ylfx8OuI39oBZcLF6GK")
+  #   legends_array = JSON.parse(response.body)["results"]
+  #   legends_array.each do |legends|
+  #     Legends.new(legends)
+  #   end
+  # end
     
   # def self.all
   #   self.scrape_legend
