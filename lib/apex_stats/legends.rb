@@ -4,7 +4,6 @@ class ApexStats::Legends
   
   @@all = []
   
-<<<<<<< HEAD
   # def self.get_data
   #   response = RestClient.get("https://api.mozambiquehe.re/bridge?platform=PC&player=FactotumX,klochan_x,stylishnoob4,aceu,missesmae&auth=1ylfx8OuI39oBZcLF6GK")
   #   legends_array = JSON.parse(response.body)["results"]
@@ -12,16 +11,6 @@ class ApexStats::Legends
   #     Legends.new(legends)
   #   end
   # end
-=======
-  def self.get_data
-    response = RestClient.get("https://api.mozambiquehe.re/bridge?platform=PC&player=FactotumX,klochan_x,stylishnoob4,aceu,missesmae&auth=1ylfx8OuI39oBZcLF6GK")
-    legends_array = JSON.parse(response.body)["results"]
-    legends_array.each do |legends|
-      Legends.new(legends)
-      binding.pry
-    end
-  end
->>>>>>> e9fa77180753698d433e6ea7d61173d04d749314
     
   # def self.all
   #   self.scrape_legend
