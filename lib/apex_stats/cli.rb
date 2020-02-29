@@ -29,6 +29,7 @@ class ApexStats::CLI
 
   
   def menu
+    puts ""
     puts "Type the name of one of the legends to see more about that legend."
     puts "Type 'list' to list out all legends."
     puts "Type 'exit' to exit."
